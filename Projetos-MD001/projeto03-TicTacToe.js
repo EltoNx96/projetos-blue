@@ -2,7 +2,7 @@ console.clear();
 const prompt = require("prompt-sync")();
 /*
 Faça um "jogo da velha" criando uma matriz em duas dimensões (Você deve criar um array com 3 arrays de 3 elementos cada dentro). 
-O programa deve pedir as coordenadas (linha e coluna) alternadamente para 2 jogares e marcar X ou O em cada caso. Caso um jogador 
+O programa deve pedir as coordenadas (linha e coluna) alternadamente para 2 jogadores e marcar X ou O em cada caso. Caso um jogador 
 vença, ele deve perguntar se desejam jogar mais uma vez, e registrar quem venceu aquela rodada, se os jogadores desejarem parar, 
 o programa deve mostrar quem ganhou mais rodadas e quem é o grande vencedor.
 */
@@ -34,23 +34,24 @@ function displayItem(item) {
 displayItem();
 updateLayout();
 console.log(Layout);
+
 function game() {
   for (let i = 1; i > 0; ) {
-    console.log("Jogador1, por favor selecione o simbulo 'X' ou 'O'");
+    console.log("Jogador1, por favor selecione o símbolo 'X' ou 'O'");
     jogador1 = prompt();
     if (jogador1 == "x") {
       jogador2 = "o";
     } else if (jogador1 == "o") {
       jogador2 = "x";
     }
-    console.log("selecione as rodadas");
+    console.log("Quantas rodadas? ");
     i = +prompt();
     let jogadas = 0;
     if (repete.toLowerCase() == "sim") {
       while (i > 0) {
         console.log(i);
         jogadas++;
-        console.log(`selecione a linha e a coluna, sendo de 1 a 3 para colunas e A a C para linhas e X ou O
+        console.log(`Selecione a linha e a coluna, sendo de 1 a 3 para colunas e A a C para linhas e X ou O
       ex: 1a x`);
         selecao = prompt();
         if (selecao.toLowerCase() == "1a x" && ticTacToe[0][0] == undefined) {
@@ -391,7 +392,7 @@ function game() {
       jogador1;
       jogador2;
     } else {
-      console.log("ok, até mais");
+      console.log("Ok, até a próxima.");
     }
   }
 }
@@ -399,4 +400,3 @@ game();
 displayItem();
 updateLayout();
 console.log();
-console.log(Layout);
